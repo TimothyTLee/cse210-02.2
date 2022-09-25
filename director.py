@@ -7,10 +7,11 @@ class Director:
     The responsibility of a Director is to control the sequence of play.
 
     Attributes:
-        dice (List[Die]): A list of Die instances.
+        card (List[Card]): deals out an available card from a deck of 52.
         is_playing (boolean): Whether or not the game is being played.
         score (int): The score for one round of play.
         total_score (int): The score for the entire game.
+        keeps track of score (adds or subtracts for starting score of 300).
     """
 
     def __init__(self):
@@ -39,7 +40,7 @@ class Director:
             self.do_continue()
 
     def get_inputs(self):
-        """Ask the user if they want to roll.
+        """Ask the user if the next_card is higher or lower.
 
         Args:
             self (Director): An instance of Director.
@@ -61,7 +62,8 @@ class Director:
         self.next_card = None
 
     def do_outputs(self, result):
-        """Displays the dice and the score. Also asks the player if they want to roll again. 
+        """Displays the card  number and suit and shows the current score. Also asks the player if they want to continue play or quit.
+            also ends game if player reaches zero. 
 
         Args:
             self (Director): An instance of Director.
